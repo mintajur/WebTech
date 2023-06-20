@@ -1,0 +1,2 @@
+The first task was to make my own CV using raw HTML
+The second task was to make a registration page using raw HTML and a few uses of CSS for text color
