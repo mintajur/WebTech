@@ -1,0 +1,1 @@
+Here, a registration page is created and after successfully registering a registration success page will appear. If there password is typed wrong or the user want to change his/her password then he/she can change it by clicking Forget Password Option. PHP Mainled is used here with database connection. 
