@@ -1,0 +1,106 @@
+<html>
+<head>
+<script>
+  
+function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "gethint.php?q=" + str, true);
+    xmlhttp.send();
+
+  }
+}
+
+function showHint1(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint1").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint1").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "gethint1.php?q=" + str, true);
+    xmlhttp.send();
+
+  }
+}
+
+function showHint2(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint2").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint2").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "gethint2.php?q=" + str, true);
+    xmlhttp.send();
+
+  }
+}
+
+
+function submitValue() {
+        // Get the value entered by the user
+        var input = document.getElementById('value-input');
+        var value = input.value;
+        var input1 = document.getElementById1('value-input1');
+        var value1 = input1.value1;
+        var input2 = document.getElementById2('value-input2');
+        var value2 = input2.value2;
+        var input3 = document.getElementById3('value-input3');
+        var value3 = input3.value3;
+        
+        // Store the value in localStorage
+        localStorage.setItem('myValue', value);
+        localStorage.setItem1('myValue1', value1);
+        localStorage.setItem2('myValue2', value2);
+        localStorage.setItem3('myValue3', value3);
+        
+        // Redirect to the second page
+        window.location.href = 'page2.html';
+      }
+
+
+</script>
+</head>
+<body>
+
+<p><b>Start typing a name in the input field below:</b></p>
+<form action="display.php" method="post" id="nameform">
+
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname" id="value-input" onkeyup="showHint(this.value)"> <br> <br>
+  <label for="fname">Last name:</label>
+  <input type="text" id="lname" name="lname" id="value-input1" onkeyup="showHint(this.value)"> <br> <br>
+  <label for="country">Country:</label>
+  <input type="text" id="country" name="country" id="value-input2" onkeyup="showHint1(this.value)"> <br> <br>
+  <label for="country">Email:</label>
+  <input type="text" id="email" name="email" id="value-input3" onkeyup="showHint2(this.value)"> <br> <br>
+
+
+    <button type="submit" form="nameform" value="submit">Submit</button>
+    
+</form>
+
+
+<p>Suggestions For Names: <span id="txtHint"></span></p>
+<p>Suggestions For Country Names: <span id="txtHint1"></span></p>
+<p>Suggestions For Email Id: <span id="txtHint2"></span></p>
+</body>
+</html>
+
